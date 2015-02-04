@@ -16,7 +16,11 @@
   {
      $song = new Song($_POST["title"],$_POST["artist"],$_POST["genre"],$_POST["price"]);
      $song->save();
-
+      echo "<p>The song ";
+      echo $song->getTitle(); 
+      echo " with an ID of ";
+      echo $song->getId(); 
+      echo " was inserted successfully!</p>";
      exit();
   }
 

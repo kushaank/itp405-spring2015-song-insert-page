@@ -8,6 +8,7 @@ class Song extends Database {
 	private $id;
 	private $genre_id;
 	private $price;
+	private $ID;
 
 	public function __construct($title,$id,$genre_id,$price)
 	{
@@ -58,6 +59,8 @@ class Song extends Database {
 		$statement->bindParam(3,$this->genre_id);
 		$statement->bindParam(4,$this->price);
 		$statement->execute();
+		$this->ID= static::$pdo->lastInsertId();
+
 	}
 
 	public function getTitle()
@@ -67,7 +70,7 @@ class Song extends Database {
 
 	public function getId()
 	{
-		return $this->id;
+		return $this->ID;
 	}
 
 
